@@ -8,6 +8,7 @@ import torch.nn as nn
 import transformers
 
 from .quantizer import Quantizer
+from peft.tuners import rosa
 
 
 logger = getLogger(__name__)
@@ -38,7 +39,7 @@ class GPTQ:
         if len(inp.shape) == 2:
             inp = inp.unsqueeze(0)
         tmp = inp.shape[0]
-        if isinstance(self.layer, nn.Linear) or isinstance(self.layer, transformers.Conv1D):
+        if isinstance(self.layer, nn.Linear) or isinstance(self.layer, transformers.Conv1D) or isinstance(self.layer, rosa.RosaLayer):
             if len(inp.shape) == 3:
                 inp = inp.reshape((-1, inp.shape[-1]))
             inp = inp.t()
