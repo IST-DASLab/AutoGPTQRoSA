@@ -1,3 +1,8 @@
+# AutoGPTQRoSA
+A fork of the AutoGPTQ library which applies GPTQ to a [QRoSA](https://arxiv.org/pdf/2401.04679) PEFT model while merging the adapters, without materializing the full/half precision merged model.
+
+The rest of the README comes from AutoGPTQ.
+
 <h1 align="center">AutoGPTQ</h1>
 <p align="center">An easy-to-use LLM quantization package with user-friendly APIs, based on GPTQ algorithm (weight-only quantization).</p>
 <p align="center">
